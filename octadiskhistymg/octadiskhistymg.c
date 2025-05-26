@@ -123,9 +123,9 @@ int main(int argc, char* argv[]) {
         for (size_t i = 0; i < read_bytes; i += 4) {
             for (int j = 0; j < 4; ++j) {
                 uint8_t b = buffer[i + j];
-	for (int k = 0; k <= 6; k += 2) {
-	    count[(b >> k) & 0x03]++;
-	}
+	          for (int k = 0; k <= 6; k += 2) {
+	              count[(b >> k) & 0x03]++;
+	          }
             }
         }
 
@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
             percent[i] = 100.0 * count[i] / total;
         }
 
-        printf("(Loop %zu) Hist: %.1f %.2f %.2f %.2f\n",
+        printf("(Loop %zu) Hist: %.1f %.1f %.1f %.1f\n",
                loop+1, percent[0], percent[1], percent[2], percent[3]);
 
         if (csv) {
