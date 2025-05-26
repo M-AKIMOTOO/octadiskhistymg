@@ -114,20 +114,26 @@ int main(int argc, char* argv[]) {
     }
 
     for (size_t loop = 0; loop < loop_count; ++loop) {
+    
         size_t read = fread(buffer, 1, read_bytes, file);
+        
         if (read < read_bytes) break;
 
         size_t count[4] = {0};
         size_t samples = read_bytes / 4;
 
-        for (size_t i = 0; i < read_bytes; i += 4) {
-            for (int j = 0; j < 4; ++j) {
-                uint8_t b = buffer[i + j];
-	          for (int k = 0; k <= 6; k += 2) {
-	              count[(b >> k) & 0x03]++;
-	          }
-            }
-        }
+	for (size_t i = 0; i < read_bytes; i += 4) {
+	
+	    uint32_t word = buffer[i] |
+		           (buffer[i + 1] << 8) |
+		           (buffer[i + 2] << 16) |
+		           (buffer[i + 3] << 24);
+
+	    for (int k = 0; k < 32; k += 2) {
+		count[(word >> k) & 0x03]++;
+	    }
+	}
+
 
         size_t total = samples * 16;
         double percent[4];
