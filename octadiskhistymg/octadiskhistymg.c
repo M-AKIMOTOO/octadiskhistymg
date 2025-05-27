@@ -103,7 +103,7 @@ int main(int argc, char* argv[]) {
     FILE* csv = NULL;
     char csv_filename[512], gplt_filename[520];
     if (generate_gnuplot) {
-        snprintf(csv_filename, sizeof(csv_filename), "%s.csv", filename);
+        snprintf(csv_filename, sizeof(csv_filename), "%s.hist.csv", filename);
         csv = fopen(csv_filename, "w");
         if (!csv) {
             perror("Error creating CSV file");
