@@ -10,7 +10,7 @@
 #include <string.h>
 
 void print_usage(const char* prog) {
-    printf("Usage: %s --ifile FILE --readbyte N --skip N --loop N [--gnuplot]\n", prog);
+    printf("Usage: %s --ifile FILE --readbyte N --loop N [--skip N] [--gnuplot]\n", prog);
     printf("  --ifile     : Input .vdif or .raw file (required)\n");
     printf("  --readbyte  : Bytes to read per loop (required)\n");
     printf("  --loop      : Number of times to read and analyze (required)\n");
