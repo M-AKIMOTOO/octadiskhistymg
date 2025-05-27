@@ -13,9 +13,9 @@ void print_usage(const char* prog) {
     printf("Usage: %s --ifile FILE --readbyte N --skip N --loop N [--gnuplot]\n", prog);
     printf("  --ifile     : Input .vdif or .raw file (required)\n");
     printf("  --readbyte  : Bytes to read per loop (required)\n");
-    printf("  --skip      : Bytes to skip before reading (required)\n");
     printf("  --loop      : Number of times to read and analyze (required)\n");
-    printf("  --gnuplot   : (optional) Generate .csv and .gplt for plotting with gnuplot\n");
+    printf("  --skip      : Bytes to skip before reading (optional)\n");
+    printf("  --gnuplot   : Generate .csv and .gplt for plotting with gnuplot (optional)\n");
 }
 
 int ends_with(const char* str, const char* suffix) {
